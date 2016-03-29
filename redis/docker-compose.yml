@@ -1,0 +1,11 @@
+redis_telefe:
+   image: "redis:3"
+#   command: redis-server /usr/local/etc/redis/redis.conf
+   entrypoint: /start.sh
+   privileged: true
+   ports:
+     - 6379:6379
+   volumes:
+     - ./data/:/data/
+     - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+     - ./start.sh:/start.sh
